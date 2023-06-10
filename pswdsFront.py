@@ -11,21 +11,21 @@ class PasswordKeeperGUI:
         self.password_keeper = password_keeper
         self.window = Tk()
         self.window.title("Password Keeper")
-        self.window.geometry("410x425")
+        self.window.geometry("400x425")
 
         self.website_label = Label(self.window, text="Website:", anchor="center")
         self.website_label.pack()
-        self.website_entry = Entry(self.window, width=30, justify="center")
+        self.website_entry = Entry(self.window, width=20, justify="center")
         self.website_entry.pack()
 
         self.username_label = Label(self.window, text="Username:", anchor="center")
         self.username_label.pack()
-        self.username_entry = Entry(self.window, width=30, justify="center")
+        self.username_entry = Entry(self.window, width=20, justify="center")
         self.username_entry.pack()
 
         self.password_label = Label(self.window, text="Password:", anchor="center")
         self.password_label.pack()
-        self.password_entry = Entry(self.window, width=30, show="*", justify="center")
+        self.password_entry = Entry(self.window, width=20, show="*", justify="center")
         self.password_entry.pack()
 
         self.show_password_var = BooleanVar()
