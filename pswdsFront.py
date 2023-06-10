@@ -80,18 +80,27 @@ class PasswordKeeperGUI:
             mb.showwarning("Error", "Please fill in all fields.")
 
     def update_password(self):
-        website = self.website_entry.get()
-        new_password = self.password_entry.get()
+        selected_index = self.password_list.curselection()
+        if selected_index:
+            selected_password = self.password_list.get(selected_index)
+            password_parts = selected_password.split(" | ")
+            website = password_parts[0].split(": ")[1]
 
-        if website and new_password:
-            if self.password_keeper.update_password(website, new_password):
-                mb.showinfo("Success", "Password updated successfully.")
-                self.clear_entry_fields()
-                self.refresh_password_list()
+            new_website = self.website_entry.get()
+            new_username = self.username_entry.get()
+            new_password = self.password_entry.get()
+
+            if new_website and new_username and new_password:
+                if self.password_keeper.update_password(website, new_website, new_username, new_password):
+                    mb.showinfo("Success", "Password updated successfully.")
+                    self.clear_entry_fields()
+                    self.refresh_password_list()
+                else:
+                    mb.showwarning("Error", "Website not found.")
             else:
-                mb.showwarning("Error", "Website not found.")
+                mb.showwarning("Error", "Please fill in all fields.")
         else:
-            mb.showwarning("Error", "Please fill in both fields.")
+            mb.showwarning("No Selection", "Please select a password to update.")
 
     def delete_password(self):
         selected_index = self.password_list.curselection()

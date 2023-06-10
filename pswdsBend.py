@@ -57,13 +57,18 @@ class PasswordKeeper:
         self.passwords[website] = {"username": username, "password": encrypted_password}
         self.save_passwords()
 
-    def update_password(self, website, new_password):
+    def update_password(self, website, new_website, new_username, new_password):
         if website in self.passwords:
-            encrypted_password = self.encrypt_password(new_password)
-            self.passwords[website]["password"] = encrypted_password
+            password_info = self.passwords[website]
+            del self.passwords[website]
+            password_info['website'] = new_website
+            password_info['username'] = new_username
+            password_info['password'] = self.encrypt_password(new_password)
+            self.passwords[new_website] = password_info
             self.save_passwords()
             return True
-        return False
+        else:
+            return False
 
     def delete_password(self, website):
         if website in self.passwords:
