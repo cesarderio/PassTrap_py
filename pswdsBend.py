@@ -15,12 +15,25 @@ class PasswordKeeper:
         self.credentials = {}  # Dictionary to store username-password pairs
         self.load_credentials()
 
+        self.pin = self.get_pin()
         if self.pin is None:
             self.set_pin()
 
+    def get_pin(self):
+        try:
+            with open("pin.txt", "r") as file:
+                pin = file.read().strip()
+            return pin if pin else None
+        except FileNotFoundError:
+            return None
+
     def set_pin(self):
-        pin = input("Please enter a new PIN: ")
+        pin = input("Enter a new PIN: ")
+        with open("pin.txt", "w") as file:
+            file.write(pin)
+
         self.pin = pin
+
 
     def generate_key(self):
         key_file_path = self.file_path + ".key"
