@@ -63,7 +63,20 @@ PassTrap can be converted into an executable file for easy distribution and usag
         ***pyinstaller --onefile main.py***
         *This command will create a standalone executable file named main.exe (or main on Linux/Mac) in the dist directory.*
 3. Locate and Run the Executable: The generated executable file can be found in the dist directory. Double-click the ***main.exe*** (or ***main*** on Linux/Mac) file to run PassTrap without the need for Python installation.
-***Note**: The executable file may trigger antivirus software due to the nature of its packaging. You may need to whitelist or allow the file to run.*
+***Note: The executable file may trigger antivirus software due to the nature of its packaging. You may need to whitelist or allow the file to run.***
+        *Windows Defender settings:*
+        *Open the Windows Defender Security Center:*
+        - *Click on the Start menu, search for "Windows Security," and open the Windows Security app.*
+        *Go to Virus & Threat Protection:*
+        - *In the Windows Security app, click on "Virus & Threat Protection" in the left-hand navigation pane.*
+        *Exclusion Settings:*
+        - *Under the "Virus & Threat Protection settings" section, click on "Manage settings."*
+        *Add an Exclusion:*
+        - *Scroll down to the "Exclusions" section and click on the "Add or remove exclusions" link.*
+        *Add an Exclusion for a File:*
+        - *Click on the "Add an exclusion" button and select "File" from the dropdown menu.*
+        *Browse and Select the Executable:*
+        - *Navigate to the directory where your executable file is located and select it. Click on "Open" to add the file as an exclusion.*
 
 ## Security
 
