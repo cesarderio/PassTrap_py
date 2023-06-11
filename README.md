@@ -29,7 +29,7 @@ PassTrap is a password manager application built using Python and Tkinter. It al
 
 1. Run the main.py file:
 
-        python main.py
+        python Pass_Trap.py
 
 2. The Sign In window will appear. Set up your username and password or sign in if you have already set them up.
 
