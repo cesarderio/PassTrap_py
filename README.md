@@ -35,8 +35,9 @@ To get started with PassTrap, follow these simple steps:
 
 1. Download and Install: Clone the PassTrap repository or download the source code to your local machine.
 2. Install Dependencies: Install the necessary dependencies by running
-        pip install -r requirements.txt.
-3. Run PassTrap: Launch PassTrap by executing the main.py file.
+        ***pip install -r requirements.txt.***
+3. Run PassTrap: Launch PassTrap by executing the
+        ***main.py file***.
 4. Store and Manage Passwords: Add your website, username, and password details to the password manager. Update or delete entries as needed.
 5. Retrieve Passwords: Access your stored passwords whenever required to simplify the login process.
 
@@ -50,8 +51,19 @@ PassTrap can be customized and extended to meet your specific requirements. Cons
 - Add additional fields to the password entry form (e.g., email, notes).
 - Enhance the user interface with themes, icons, or personalized branding.
 - Integrate with cloud storage or sync functionality for cross-device password access.
-- Expand PassTrap's security features, such as two-factor authentication or biometric login options.
 - Implement additional features such as password strength assessment, password generation, or category-based organization of password entries.
+- Expand PassTrap's security features, such as two-factor authentication or biometric login options.
+
+## Creating an Executable File
+
+PassTrap can be converted into an executable file for easy distribution and usage on systems without Python installed. Follow these steps to create an executable file:
+
+1. Install **pyinstaller** package: Run ***pip install pyinstaller*** to install the **pyinstaller** package, which will be used to create the executable file.
+2. Generate the executable: Open a command prompt or terminal window and navigate to the PassTrap project directory. Run the following command:
+        ***pyinstaller --onefile main.py***
+        *This command will create a standalone executable file named main.exe (or main on Linux/Mac) in the dist directory.*
+3. Locate and Run the Executable: The generated executable file can be found in the dist directory. Double-click the ***main.exe*** (or ***main*** on Linux/Mac) file to run PassTrap without the need for Python installation.
+***Note**: The executable file may trigger antivirus software due to the nature of its packaging. You may need to whitelist or allow the file to run.*
 
 ## Security
 
@@ -59,9 +71,9 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 
 ## Requirements
 
-- Python 3.x
-- Tkinter module
-- cryptography module
+- ***Python*** 3.x
+- ***Tkinter*** module
+- ***Fernet*** cryptography module
 
 ## Installation
 
@@ -91,10 +103,6 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 7. Use the "Update" button to modify an existing password entry.
 
 8. Use the "Delete" button to remove a password entry.
-
-## Security
-
-PassTrap uses the Fernet encryption algorithm from the cryptography module to encrypt and decrypt passwords. It is important to keep your master password secure and ensure the confidentiality of the encryption key file (.key). Additionally, use strong and unique passwords for your accounts.
 
 ## License
 
