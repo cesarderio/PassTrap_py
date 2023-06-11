@@ -7,8 +7,8 @@ PassTrap is a password manager application built using Python and Tkinter. It al
 - Securely store website, username, and password combinations.
 - Add, update, and delete password entries.
 - Encrypts passwords using the Fernet encryption algorithm.
-- Requires user authentication to access the password manager.
 - Simple and user-friendly graphical interface using Tkinter.
+<!-- - Requires user authentication to access the password manager. -->
 
 ## Requirements
 
