@@ -14,7 +14,8 @@ def main():
             pass
 
     # password_keeper = PasswordKeeper(file_path, pin)
-    password_keeper = PasswordKeeper(file_path, None)
+    password_keeper = PasswordKeeper(file_path)
+    # password_keeper = PasswordKeeper(file_path, None)
     gui = PasswordKeeperGUI(password_keeper)
 
 

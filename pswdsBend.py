@@ -4,7 +4,7 @@ from cryptography.fernet import Fernet
 
 
 class PasswordKeeper:
-    def __init__(self, file_path, pin):
+    def __init__(self, file_path, pin=None):
         self.file_path = file_path
         self.pin = pin
         self.passwords = {}
@@ -14,6 +14,13 @@ class PasswordKeeper:
         
         self.credentials = {}  # Dictionary to store username-password pairs
         self.load_credentials()
+
+        if self.pin is None:
+            self.set_pin()
+
+    def set_pin(self):
+        pin = input("Please enter a new PIN: ")
+        self.pin = pin
 
     def generate_key(self):
         key_file_path = self.file_path + ".key"
@@ -94,8 +101,11 @@ class PasswordKeeper:
 
     def check_pin(self, website, entered_pin):
         if website in self.passwords:
+            print("Stored Pin:", self.pin)  # Debugging statement
+            print("Entered Pin:", entered_pin)  # Debugging statement
             return entered_pin == self.pin
         return False
+
 
     def get_passwords(self):
         return self.passwords

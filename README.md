@@ -33,7 +33,7 @@ PassTrap is a password manager application built using Python and Tkinter. It al
 
 2. Use the "Change PIN" button to update or change the pin code to unhide saved passwords.
 
-3. Use the "randomizer" button to generate a new random password.
+3. Use the "Randomizer" button to generate a new random password.
 
 4. Use the "Add" button to add a new password entry with the website, username, and password.
 
