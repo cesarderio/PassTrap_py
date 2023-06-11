@@ -11,6 +11,9 @@ class PasswordKeeper:
         self.key = self.generate_key()
 
         self.load_passwords()
+        
+        self.credentials = {}  # Dictionary to store username-password pairs
+        self.load_credentials()
 
     def generate_key(self):
         key_file_path = self.file_path + ".key"
@@ -84,12 +87,10 @@ class PasswordKeeper:
             if decrypted_password is not None:
                 return {"username": password_info["username"], "password": decrypted_password}
             else:
-                print("Decryption failed for website:", website)  # Add this line
+                print("Decryption failed for website:", website)
         else:
-            print("Website not found in password records:", website)  # Add this line
+            print("Website not found in password records:", website)
         return None
-
-
 
     def check_pin(self, website, entered_pin):
         if website in self.passwords:
@@ -99,7 +100,28 @@ class PasswordKeeper:
     def get_passwords(self):
         return self.passwords
     
-    def check_pin(self, website, pin):
-        if self.pin:
-            return pin == self.pin
-        return True
+    def load_credentials(self):
+        try:
+            with open("credentials.json", "r") as file:
+                self.credentials = json.load(file)
+        except FileNotFoundError:
+            self.credentials = {}
+
+    def save_credentials(self):
+        with open("credentials.json", "w") as file:
+            json.dump(self.credentials, file)
+
+    def set_credentials(self, username, password):
+        # Set up username and password
+        self.credentials[username] = password
+        self.save_credentials()
+
+    def authenticate(self, username, password):
+        # Authenticate the provided username and password
+        # Check if the username exists in the credentials dictionary
+        # If it does, compare the stored password with the provided password
+        # Return True if the authentication is successful, False otherwise
+        if username in self.credentials and self.credentials[username] == password:
+            return True
+        else:
+            return False

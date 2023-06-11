@@ -1,17 +1,42 @@
-from tkinter import Tk, Label, Entry, Button, Listbox, Checkbutton, BooleanVar, messagebox as mb, Frame
+
+from tkinter import Tk, Label, Entry, Button, Listbox, Checkbutton, BooleanVar, messagebox as mb, Frame, Scrollbar
 import random
 import string
 from tkinter import messagebox, simpledialog
-
+import tkinter.font as tkfont
 from pswdsBend import PasswordKeeper
 
+
+
+class StyledListbox(Listbox):
+    def __init__(self, master=None, **kwargs):
+        super().__init__(master, **kwargs)
+        self.custom_fonts = {}
+
+    def insert(self, index, *elements, **kwargs):
+        font = kwargs.pop('font', None)
+        super().insert(index, *elements, **kwargs)
+        if font:
+            self.custom_fonts[index] = font
+            self.itemconfigure(index, font=font)
+
+    def delete(self, first, last=None):
+        if isinstance(first, str) and last is None:
+            self.custom_fonts.pop(first, None)
+        super().delete(first, last)
+
+    def itemconfig(self, index, **kwargs):
+        font = kwargs.pop('font', None)
+        if font:
+            self.custom_fonts[index] = font
+        super().itemconfig(index, **kwargs)
 
 class PasswordKeeperGUI:
     def __init__(self, password_keeper):
         self.password_keeper = password_keeper
         self.window = Tk()
         self.window.title("Password Keeper")
-        self.window.geometry("400x425")
+        self.window.geometry("385x445")
 
         self.website_label = Label(self.window, text="Website:", anchor="center")
         self.website_label.pack()
@@ -33,31 +58,60 @@ class PasswordKeeperGUI:
                                                   command=self.toggle_password_visibility)
         self.show_password_checkbox.pack()
 
-        self.generate_button = Button(self.window, text="Generate Password", command=self.generate_password)
-        self.generate_button.pack()
-
         self.button_frame = Frame(self.window)
-        self.button_frame.pack()
+        self.button_frame.pack(pady=2)
 
         self.add_button = Button(self.button_frame, text="Add", command=self.add_password)
-        self.add_button.pack(side="left", padx=5, pady=5)
+        self.add_button.pack(side="left", padx=2, pady=2)
 
         self.update_button = Button(self.button_frame, text="Update", command=self.update_password)
-        self.update_button.pack(side="left", padx=5, pady=5)
+        self.update_button.pack(side="left", padx=2, pady=2)
 
         self.delete_button = Button(self.button_frame, text="Delete", command=self.delete_password)
-        self.delete_button.pack(side="left", padx=5, pady=5)
+        self.delete_button.pack(side="left", padx=2, pady=2)
 
-        self.password_list = Listbox(self.window, width=30, height=10, selectmode="single")
+        self.button_frame2 = Frame(self.window)
+        self.button_frame2.pack(pady=2)
+
+        self.change_pin_button = Button(self.button_frame2, text="Change PIN", command=self.change_pin)
+        self.change_pin_button.pack(side="left", padx=2, pady=3)
+
+        self.generate_button = Button(self.button_frame2, text="Randomizer", command=self.generate_password)
+        self.generate_button.pack(side="left", padx=2, pady=3)
+
+        self.password_list = StyledListbox(self.window, width=25, height=10, selectmode="single")
         self.password_list.pack()
 
         self.password_list.bind("<<ListboxSelect>>", self.show_password_entry)
 
+        self.scrollbar = Scrollbar(self.window)
+        self.scrollbar.place(x=375, y=0, height=425)
+
+        self.scrollbar.config(command=self.password_list.yview)
+        self.password_list.config(yscrollcommand=self.scrollbar.set)
+
         self.refresh_password_list()
 
-        self.center_listbox_text()
-
         self.window.mainloop()
+
+    # def change_pin(self):
+    #     current_pin = self.ask_pin()
+    #     if current_pin is not None and self.password_keeper.check_pin(None, current_pin):
+    #         new_pin = simpledialog.askstring("Change PIN", "Enter the new PIN:", show="*")
+    #         if new_pin:
+    #             self.password_keeper.set_pin(None, new_pin)
+    #             mb.showinfo("Success", "PIN updated successfully.")
+    #     else:
+    #         mb.showwarning("Invalid PIN", "Incorrect PIN. Please try again.")
+    def change_pin(self):
+        current_pin = self.ask_pin()
+        if current_pin is not None and self.password_keeper.check_pin(None, current_pin):
+            new_pin = simpledialog.askstring("Change PIN", "Enter the new PIN:", show="*")
+            if new_pin:
+                self.password_keeper.pin = new_pin  # Update the PIN directly in password_keeper
+                mb.showinfo("Success", "PIN updated successfully.")
+        else:
+            mb.showwarning("Invalid PIN", "Incorrect PIN. Please try again.")
 
     def generate_password(self):
         password_length = 12
@@ -131,45 +185,42 @@ class PasswordKeeperGUI:
 
         for website, password_info in passwords.items():
             username = password_info['username']
-            item_text = f"Website: {website} | Username: {username}"
+            item_text = f"\tWebsite: {website}"
             self.password_list.insert('end', item_text)
+            self.password_list.insert('end', f"\tUsername: {username}")
+            self.password_list.insert('end', '')  # Insert an empty string for spacing
 
     def ask_pin(self):
         pin = simpledialog.askstring("PIN Required", "Enter the PIN to show the password:", show="*")
         return pin
 
-
-    # def show_password_entry(self, event):
     def show_password_entry(self, event):
         selected_item = self.password_list.curselection()
         if selected_item:
-            website_username = self.password_list.get(selected_item)
-            website, username = self.extract_website_username(website_username)
-            password_info = self.password_keeper.get_password_info(website)
-            decrypted_password = password_info.get('password') if password_info else None
-            pin = self.ask_pin()
-            if pin is not None and self.password_keeper.check_pin(website, pin):
-                self.clear_entry_fields()
-                self.website_entry.delete(0, 'end')
-                self.website_entry.insert('end', website)
-                self.username_entry.delete(0, 'end')
-                self.username_entry.insert('end', username)
-                self.password_entry.delete(0, 'end')
-                self.password_entry.insert('end', decrypted_password)
-                self.show_password_var.set(False)  # Hide the password by default
-            else:
-                mb.showwarning("Invalid PIN", "Incorrect PIN. Please try again.")
+            index = selected_item[0]
+            if index % 3 == 0:  # Check if the selected index is the website index
+                website_index = index
+                username_index = index + 1
+                website = self.password_list.get(website_index)
+                username = self.password_list.get(username_index)
+                website = website.split(": ")[1]
+                username = username.split(": ")[1]
+                password_info = self.password_keeper.get_password_info(website)
+                decrypted_password = password_info.get('password') if password_info else None
+                pin = self.ask_pin()
+                if pin is not None and self.password_keeper.check_pin(website, pin):
+                    self.clear_entry_fields()
+                    self.website_entry.delete(0, 'end')
+                    self.website_entry.insert('end', website)
+                    self.username_entry.delete(0, 'end')
+                    self.username_entry.insert('end', username)
+                    self.password_entry.delete(0, 'end')
+                    self.password_entry.insert('end', decrypted_password)
+                    self.show_password_var.set(False)  # Hide the password by default
+                else:
+                    mb.showwarning("Invalid PIN", "Incorrect PIN. Please try again.")
         else:
             mb.showwarning("No Selection", "Please select a password entry.")
-
-    def extract_website_username(self, website_username):
-        website, username = website_username.split(" | ")
-        website = website.split(": ")[1]
-        username = username.split(": ")[1]
-        return website, username
-
-
-
 
     def toggle_password_visibility(self):
         show_password = self.show_password_var.get()
@@ -185,9 +236,3 @@ class PasswordKeeperGUI:
         self.password_list.columnconfigure(0, weight=1)
         self.password_list.columnconfigure(1, weight=1)
 
-
-if __name__ == "__main__":
-    file_path = input("Enter the file name: ")
-    pin = input("Enter the PIN: ")
-    password_keeper = PasswordKeeper(file_path, pin)
-    gui = PasswordKeeperGUI(password_keeper)
