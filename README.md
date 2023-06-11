@@ -31,9 +31,9 @@ PassTrap is a password manager application built using Python and Tkinter. It al
 
         python Pass_Trap.py
 
-2. The Sign In window will appear. Set up your username and password or sign in if you have already set them up.
+2. Use the "pin" button to add a new pin.
 
-3. Once signed in, the Passwords window will open, allowing you to manage your passwords.
+3. Use the "randomizer" button to generate a new random password.
 
 4. Use the "Add" button to add a new password entry with the website, username, and password.
 
@@ -41,6 +41,9 @@ PassTrap is a password manager application built using Python and Tkinter. It al
 
 6. Use the "Delete" button to remove a password entry.
 
+<!--  The Sign In window will appear. Set up your username and password or sign in if you have already set them up. -->
+
+<!--  Once signed in, the Passwords window will open, allowing you to manage your passwords. -->
 ## Customization
 
 You can customize the behavior and appearance of the application by modifying the source code. Here are a few possible enhancements:
