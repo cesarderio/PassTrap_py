@@ -50,6 +50,12 @@ class LoginWindow:
         self.button_login = tk.Button(self.root, text="Login", command=self.login)
         self.button_login.pack()
 
+        self.button_setup = tk.Button(self.root, text="Set Up", command=self.setup)
+        self.button_setup.pack()
+
+        self.button_reset = tk.Button(self.root, text="Reset Password", command=self.reset_password)
+        self.button_reset.pack()
+
     def login(self):
         username = self.entry_username.get()
         password = self.entry_password.get()
@@ -61,6 +67,29 @@ class LoginWindow:
             subprocess.call([python_path, pass_trap_path])
         else:
             messagebox.showerror("Error", "Invalid username or password.")
+
+    def setup(self):
+        username = self.entry_username.get()
+        password = self.entry_password.get()
+
+        if username and password:
+            self.authentication.set_credentials(username, password)
+            messagebox.showinfo("Success", "Username and password have been set up.")
+        else:
+            messagebox.showerror("Error", "Please enter a valid username and password.")
+
+    def reset_password(self):
+        username = self.entry_username.get()
+
+        if username:
+            if username in self.authentication.credentials:
+                new_password = self.entry_password.get()
+                self.authentication.set_credentials(username, new_password)
+                messagebox.showinfo("Success", "Password has been reset.")
+            else:
+                messagebox.showerror("Error", "Invalid username.")
+        else:
+            messagebox.showerror("Error", "Please enter a username.")
 
 
 if __name__ == "__main__":

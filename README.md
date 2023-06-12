@@ -31,7 +31,12 @@ PassTrap offers several advantages that make it an excellent choice for password
 ## Getting Started
 
 To get started with PassTrap, follow these simple steps:
-(Currently in development - You can run main.py file for login with username/password authentication or you can run Pass_Trap.py for minimal version with only pincode verification to show password.)
+
+(*Currently in development:*
+
+- *You can run main.py file for login with username/password authentication*
+  - *Demo username: cesar | password: pass*
+- *Or you can run Pass_Trap.py for minimal version with only pincode verification to show password.*)
 
 1. Download and Install: Clone the PassTrap repository or download the source code to your local machine.
 2. Install Dependencies: Install the necessary dependencies by running
