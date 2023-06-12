@@ -135,6 +135,24 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 6. Use the "Update" button to modify an existing password entry.
 7. Use the "Delete" button to remove a password entry.
 
+## Screenshots
+
+![Login Window](./assets/loginWindowLinuxDark.png)
+
+![Login Window](./assets/loginWindowLinuxLightV2.png)
+
+![Password Manager](./assets/passwordKeeperWindowLinuxDark.png)
+
+![Password Manager](./assets/passwordKeeperWindowLinuxDarkpswdsShown.png)
+
+![Password Manager](./assets/passwordKeeperWindowLinuxLight.png)
+
+![Password Manager](./assets/passwordKeeperWindowpswdsLinuxDark.png)
+
+![Pin unlock to make password visible](./assets/pinWindowLinuxDark.png)
+
+![Pin unlock to make password visible](./assets/pinWindowLinuxLight.png)
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more information.# PassTrap
