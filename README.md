@@ -99,20 +99,20 @@ PassTrap can be converted into an executable file for easy distribution and usag
 
 2. Generate the executable:
 
-- Open a command prompt or terminal window and navigate to the PassTrap project directory.
+        - Open a command prompt or terminal window and navigate to the PassTrap project directory.
 
-  - Run the following command:
+        - Run the following command:
 
-        ````bash
-        pyinstaller --onefile main.py
+                ````bash
+                pyinstaller --onefile main.py
 
-- *This command will create a standalone executable file named main.exe (or main on Linux/Mac) in the dist directory.*
+        - This command will create a standalone executable file named main.exe (or main on Linux/Mac) in the dist directory.
 
 3. Locate and Run the Executable:
 
-- The generated executable file can be found in the dist directory.
+        - The generated executable file can be found in the dist directory.
 
-- Double-click the ***main.exe*** (or ***main*** on Linux/Mac) file to run PassTrap without the need for Python installation.
+        - Double-click the ***main.exe*** (or ***main*** on Linux/Mac) file to run PassTrap without the need for Python installation.
 
 ***Note: The executable file may trigger antivirus software due to the nature of its packaging. You may need to whitelist or allow the file to run.***
 
@@ -124,7 +124,7 @@ PassTrap can be converted into an executable file for easy distribution and usag
 
 - *Go to Virus & Threat Protection:*
 
-        - *In the Windows Security app, click on "Virus & Threat Protection" in the left-hand navigation pane.*
+        - In the Windows Security app, click on "Virus & Threat Protection" in the left-hand navigation pane.
 
 - *Exclusion Settings:*
 
@@ -206,15 +206,15 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 
 3. Once signed in, the Passwords window will open, allowing you to manage your passwords.
 
-4. Use the "Change PIN" button to update or change the pin code to display saved passwords.
+4. Use the "***Change PIN***" button to update or change the pin code to display saved passwords.
 
-5. Use the "Randomizer" button to generate a new random password.
+5. Use the "***Randomizer***" button to generate a new random password.
 
-6. Use the "Add" button to add a new password entry with the website, username, and password.
+6. Use the "***Add***" button to add a new password entry with the website, username, and password.
 
-7. Use the "Update" button to modify an existing password entry.
+7. Use the "***Update***" button to modify an existing password entry.
 
-8. Use the "Delete" button to remove a password entry.
+8. Use the "***Delete***" button to remove a password entry.
 
 ## Usage 2 *(Minimal (less secure) version without sign in authentication. Keeps pincode verification to make passwords visible.)*
 
