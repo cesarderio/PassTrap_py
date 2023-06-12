@@ -69,7 +69,7 @@ class LoginWindow:
 
             pass_trap_path = os.path.join(os.path.dirname(__file__), "Pass_Trap.py")
             python_path = sys.executable
-            subprocess.Popen([python_path, pass_trap_path])  # Start Pass_Trap.py in a separate process
+            subprocess.Popen([python_path, pass_trap_path, username])  # Start Pass_Trap.py with the username
         else:
             messagebox.showerror("Error", "Invalid username or password.")
 
