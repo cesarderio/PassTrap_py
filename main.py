@@ -4,6 +4,8 @@ import os
 import subprocess
 import tkinter as tk
 from tkinter import messagebox
+from pswdsBend import PasswordKeeper
+from pswdsFront import PasswordKeeperGUI
 
 
 class Authentication:
@@ -39,7 +41,8 @@ class LoginWindow:
         self.authentication = authentication
 
         self.root = tk.Tk()
-        self.root.title("Login")
+        self.root.title("Password Manager")
+        self.root.geometry("240x200")  # Set the window size (width x height)
 
         self.label_username = tk.Label(self.root, text="Username:")
         self.label_username.pack()
@@ -67,13 +70,12 @@ class LoginWindow:
         if self.authentication.authenticate(username, password):
             self.root.destroy()  # Close the login window
 
-            pass_trap_path = os.path.join(os.path.dirname(__file__), "Pass_Trap.py")
-            python_path = sys.executable
-            subprocess.Popen([python_path, pass_trap_path, username])  # Start Pass_Trap.py with the username
+            file_path = "PassTrap_{}.txt".format(username)
+            password_keeper = PasswordKeeper(file_path)
+            gui = PasswordKeeperGUI(password_keeper)
         else:
             messagebox.showerror("Error", "Invalid username or password.")
 
-    # Rest of the code remains the same
     def setup(self):
         username = self.entry_username.get()
         password = self.entry_password.get()

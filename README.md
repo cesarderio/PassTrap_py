@@ -35,7 +35,7 @@ To get started with PassTrap, follow these simple steps:
 (*Currently in development:*
 
 - *You can run main.py file for login with username/password authentication*
-  - *Demo username: cesar | password: pass*
+  - *Demo username: cesar | password: pass | pin: 0000*
 - *Or you can run Pass_Trap.py for minimal version with only pincode verification to show password.*)
 
 1. Download and Install: Clone the PassTrap repository or download the source code to your local machine.

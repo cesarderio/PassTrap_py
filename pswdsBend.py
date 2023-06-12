@@ -114,8 +114,8 @@ class PasswordKeeper:
 
     def check_pin(self, website, entered_pin):
         if website in self.passwords:
-            print("Stored Pin:", self.pin)  # Debugging statement
-            print("Entered Pin:", entered_pin)  # Debugging statement
+            # print("Stored Pin:", self.pin)  # Debugging statement
+            # print("Entered Pin:", entered_pin)  # Debugging statement
             return entered_pin == self.pin
         return False
 
