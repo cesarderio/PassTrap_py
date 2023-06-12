@@ -26,6 +26,10 @@ class Authentication:
         self.credentials[username] = password
         self.save_credentials()
 
+    def reset_credentials(self):
+        self.credentials = {}
+        self.save_credentials()
+
     def authenticate(self, username, password):
         return self.credentials.get(username) == password
 
@@ -50,10 +54,10 @@ class LoginWindow:
         self.button_login = tk.Button(self.root, text="Login", command=self.login)
         self.button_login.pack()
 
-        self.button_setup = tk.Button(self.root, text="Set Up", command=self.setup)
+        self.button_setup = tk.Button(self.root, text="Setup", command=self.setup)
         self.button_setup.pack()
 
-        self.button_reset = tk.Button(self.root, text="Reset Password", command=self.reset_password)
+        self.button_reset = tk.Button(self.root, text="Reset", command=self.reset)
         self.button_reset.pack()
 
     def login(self):
@@ -61,35 +65,32 @@ class LoginWindow:
         password = self.entry_password.get()
 
         if self.authentication.authenticate(username, password):
-            self.root.destroy()
+            self.root.destroy()  # Close the login window
+
             pass_trap_path = os.path.join(os.path.dirname(__file__), "Pass_Trap.py")
             python_path = sys.executable
-            subprocess.call([python_path, pass_trap_path])
+            subprocess.Popen([python_path, pass_trap_path])  # Start Pass_Trap.py in a separate process
         else:
             messagebox.showerror("Error", "Invalid username or password.")
 
+    # Rest of the code remains the same
     def setup(self):
         username = self.entry_username.get()
         password = self.entry_password.get()
 
         if username and password:
             self.authentication.set_credentials(username, password)
-            messagebox.showinfo("Success", "Username and password have been set up.")
+            messagebox.showinfo("Success", "Username and password have been set.")
         else:
-            messagebox.showerror("Error", "Please enter a valid username and password.")
+            messagebox.showerror("Error", "Please enter a username and password.")
 
-    def reset_password(self):
-        username = self.entry_username.get()
-
-        if username:
-            if username in self.authentication.credentials:
-                new_password = self.entry_password.get()
-                self.authentication.set_credentials(username, new_password)
-                messagebox.showinfo("Success", "Password has been reset.")
-            else:
-                messagebox.showerror("Error", "Invalid username.")
+    def reset(self):
+        confirm = messagebox.askyesno("Confirmation", "Are you sure you want to reset credentials?")
+        if confirm:
+            self.authentication.reset_credentials()
+            messagebox.showinfo("Success", "Credentials have been reset.")
         else:
-            messagebox.showerror("Error", "Please enter a username.")
+            messagebox.showinfo("Cancelled", "Credentials reset has been cancelled.")
 
 
 if __name__ == "__main__":
