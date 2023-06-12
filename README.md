@@ -108,7 +108,7 @@ PassTrap can be converted into an executable file for easy distribution and usag
 
         - The generated executable file can be found in the dist directory.
 
-        - Double-click the ***main.exe*** (or ***main*** on Linux/Mac) file to run PassTrap without the need for Python installation.
+        - Double-click the main.exe (or main on Linux/Mac) file to run PassTrap without the need for Python installation.
 
 ***Note: The executable file may trigger antivirus software due to the nature of its packaging. You may need to whitelist or allow the file to run.***
 
