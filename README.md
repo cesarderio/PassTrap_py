@@ -118,29 +118,29 @@ PassTrap can be converted into an executable file for easy distribution and usag
 
 - *Windows Defender settings*:
 
-- *Open the Windows Defender Security Center*:
+        - Open the Windows Defender Security Center:
 
-- *Click on the Start menu, search for "Windows Security," and open the Windows Security app.*
+        - Click on the Start menu, search for "Windows Security," and open the Windows Security app.
 
-- *Go to Virus & Threat Protection*:
+        - Go to Virus & Threat Protection:
 
 - *In the Windows Security app, click on "Virus & Threat Protection" in the left-hand navigation pane.*
 
-- *Exclusion Settings:*
+        - Exclusion Settings:
 
-- *Under the "Virus & Threat Protection settings" section, click on "Manage settings."*
+        - Under the "Virus & Threat Protection settings" section, click on "Manage settings."
 
 - *Add an Exclusion:*
 
-- *Scroll down to the "Exclusions" section and click on the "Add or remove exclusions" link.*
+        - Scroll down to the "Exclusions" section and click on the "Add or remove exclusions" link.
 
-- *Add an Exclusion for a File:*
+        - Add an Exclusion for a File:
 
-- *Click on the "Add an exclusion" button and select "File" from the dropdown menu.*
+        - Click on the "Add an exclusion" button and select "File" from the dropdown menu.
 
 - *Browse and Select the Executable:*
 
-- *Navigate to the directory where your executable file is located and select it. Click on "Open" to add the file as an exclusion.*
+        - Navigate to the directory where your executable file is located and select it. Click on "Open" to add the file as an exclusion.
 
 ## Security
 
@@ -161,7 +161,7 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 3. Install the required dependencies:
 
         ````bash
-        *pip install -r requirements.txt*
+        pip install -r requirements.txt
 
 ***Dependencies can be installed independently:***
 
@@ -245,11 +245,11 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 
 ![Password Manager](./assets/passwordKeeperWindowLinuxLight.png)
 
+![Password Manager](./assets/passwordKeeperWindowpswdsLinuxDark.png)
+
 ![Pin unlock to make password visible](./assets/pinWindowLinuxDark.png)
 
 ![Pin unlock to make password visible](./assets/pinWindowLinuxLight.png)
-
-![Password Manager](./assets/passwordKeeperWindowpswdsLinuxDark.png)
 
 ![Password Manager](./assets/passwordKeeperWindowLinuxDarkpswdsShown.png)
 
