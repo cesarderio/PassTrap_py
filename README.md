@@ -5,18 +5,27 @@ PassTrap is a user-friendly password manager application built using Python and 
 ## Key Features
 
 - User-friendly graphical interface using Tkinter.
+
+- Requires user authentication to access the password manager.
+
 - Strong password encryption using industry-standard algorithms.
+
 - Intuitive controls for adding, updating, and deleting password entries.
+
 - Securely store and manage website, username, and password combinations.
-<!-- - Requires user authentication to access the password manager. -->
+
 ## How PassTrap Works
 
 PassTrap ensures that your passwords are stored securely and easily accessible when needed. Here's how it works:
 
 1. Store Passwords: Enter the website, username, and password details into PassTrap's password manager.
+
 2. Secure Encryption: PassTrap employs robust encryption algorithms to encrypt and safeguard your passwords, ensuring they remain confidential and protected.
+
 3. Easy Access: Retrieve your stored passwords whenever required, providing convenience and eliminating the need to remember multiple passwords.
+
 4. Password Management: Update or delete password entries as needed to keep your records up to date.
+
 5. User-Friendly Interface: PassTrap's intuitive and visually appealing interface makes it easy to navigate and manage your passwords efficiently.
 
 ## Why Use PassTrap?
@@ -24,8 +33,11 @@ PassTrap ensures that your passwords are stored securely and easily accessible w
 PassTrap offers several advantages that make it an excellent choice for password management:
 
 - Convenient Access: Access your passwords with ease whenever you need them, allowing for a seamless login experience without the hassle of manual password retrieval.
+
 - Enhanced Security: By storing your passwords in PassTrap, you reduce the risk of using weak or easily guessable passwords, improving overall security for your online accounts.
+
 - User-Friendly Design: PassTrap's intuitive and visually appealing interface ensures a smooth user experience, even for individuals without technical expertise.
+
 - Simplified Password Management: PassTrap eliminates the need to remember multiple passwords for various websites or services, making your password management more efficient.
 
 ## Getting Started
@@ -35,15 +47,25 @@ To get started with PassTrap, follow these simple steps:
 (*Currently in development:*
 
 - *You can run main.py file for login with username/password authentication*
+
   - *Demo username: cesar | password: pass | pin: 0000*
+
 - *Or you can run Pass_Trap.py for minimal version with only pincode verification to show password.*)
 
 1. Download and Install: Clone the PassTrap repository or download the source code to your local machine.
+
 2. Install Dependencies: Install the necessary dependencies by running
-        ***pip install -r requirements.txt.***
+
+        ````bash
+        pip install -r requirements.txt
+
 3. Run PassTrap: Launch PassTrap by executing the
-        ***main.py file***.
+
+        ````bash
+        main.py file
+
 4. Store and Manage Passwords: Add your website, username, and password details to the password manager. Update or delete entries as needed.
+
 5. Retrieve Passwords: Access your stored passwords whenever required to simplify the login process.
 
 ## Customization and Further Development
@@ -51,12 +73,19 @@ To get started with PassTrap, follow these simple steps:
 PassTrap can be customized and extended to meet your specific requirements. Consider the following possibilities:
 
 - Implement password strength validation.
+
 - Improve error handling and user feedback.
+
 - Add a feature to generate secure passwords.
+
 - Add additional fields to the password entry form (e.g., email, notes).
+
 - Enhance the user interface with themes, icons, or personalized branding.
+
 - Integrate with cloud storage or sync functionality for cross-device password access.
+
 - Implement additional features such as password strength assessment, password generation, or category-based organization of password entries.
+
 - Expand PassTrap's security features, such as two-factor authentication or biometric login options.
 
 ## Creating an Executable File
@@ -65,7 +94,8 @@ PassTrap can be converted into an executable file for easy distribution and usag
 
 1. Install **pyinstaller** package:
 
-- Run ***pip install pyinstaller*** to install the **pyinstaller** package, which will be used to create the executable file.
+        ````bash
+        pip install pyinstaller
 
 2. Generate the executable:
 
@@ -73,9 +103,10 @@ PassTrap can be converted into an executable file for easy distribution and usag
 
   - Run the following command:
 
-        ***pyinstaller --onefile main.py***
+        ````bash
+        pyinstaller --onefile main.py
 
-        *This command will create a standalone executable file named main.exe (or main on Linux/Mac) in the dist directory.*
+- *This command will create a standalone executable file named main.exe (or main on Linux/Mac) in the dist directory.*
 
 3. Locate and Run the Executable:
 
@@ -90,19 +121,24 @@ PassTrap can be converted into an executable file for easy distribution and usag
 - *Open the Windows Defender Security Center*:
 
 - *Click on the Start menu, search for "Windows Security," and open the Windows Security app.*
-*Go to Virus & Threat Protection*:
+
+- *Go to Virus & Threat Protection*:
 
 - *In the Windows Security app, click on "Virus & Threat Protection" in the left-hand navigation pane.*
-*Exclusion Settings:*
+
+- *Exclusion Settings:*
 
 - *Under the "Virus & Threat Protection settings" section, click on "Manage settings."*
-*Add an Exclusion:*
+
+- *Add an Exclusion:*
 
 - *Scroll down to the "Exclusions" section and click on the "Add or remove exclusions" link.*
-*Add an Exclusion for a File:*
+
+- *Add an Exclusion for a File:*
 
 - *Click on the "Add an exclusion" button and select "File" from the dropdown menu.*
-*Browse and Select the Executable:*
+
+- *Browse and Select the Executable:*
 
 - *Navigate to the directory where your executable file is located and select it. Click on "Open" to add the file as an exclusion.*
 
@@ -207,15 +243,15 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 
 ![Password Manager](./assets/passwordKeeperWindowLinuxDark.png)
 
-![Password Manager](./assets/passwordKeeperWindowLinuxDarkpswdsShown.png)
-
 ![Password Manager](./assets/passwordKeeperWindowLinuxLight.png)
-
-![Password Manager](./assets/passwordKeeperWindowpswdsLinuxDark.png)
 
 ![Pin unlock to make password visible](./assets/pinWindowLinuxDark.png)
 
 ![Pin unlock to make password visible](./assets/pinWindowLinuxLight.png)
+
+![Password Manager](./assets/passwordKeeperWindowpswdsLinuxDark.png)
+
+![Password Manager](./assets/passwordKeeperWindowLinuxDarkpswdsShown.png)
 
 ## License
 
