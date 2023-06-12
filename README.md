@@ -92,7 +92,6 @@ PassTrap can be converted into an executable file for easy distribution and usag
 
 1. Install **pyinstaller** package:
 
-        ````bash
         pip install pyinstaller
 
 2. Generate the executable:
@@ -101,7 +100,6 @@ PassTrap can be converted into an executable file for easy distribution and usag
 
         - Run the following command:
 
-                ````bash
                 pyinstaller --onefile main.py
 
         - This command will create a standalone executable file named main.exe (or main on Linux/Mac) in the dist directory.
@@ -158,7 +156,6 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 
 3. Install the required dependencies:
 
-        ````bash
         pip install -r requirements.txt
 
 ***Dependencies can be installed independently:***
@@ -167,26 +164,22 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 
   - For Windows users: Tkinter is typically included with Python installation. You can check if it is installed by running the following command in the command prompt:
 
-        ````bash
         python -m tkinter
 
     - If Tkinter is not installed, you can install it using the following command:
 
-          ````bash
           pip install tk
 
   - For Linux users:
 
     - Tkinter is often included with the default Python installation. You can install it using the package manager specific to your distribution. For example, on Ubuntu, you can use the following command:
 
-          ````bash
             sudo apt-get install python3-tk
 
   - For macOS users: Tkinter is included with the standard Python installation.
 
 - ### Install the cryptography module
 
-        ````bash
         pip install cryptography
 
         - This module is used for encrypting and decrypting passwords in PassTrap.
@@ -197,7 +190,6 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 
 1. Run the main.py file:
 
-        ````bash
         python3 main.py
 
 2. The Sign In window will appear. Set up your username and password or sign in if you have already set them up.
@@ -218,7 +210,6 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 
 1. Run the Pass_Trap.py file:
 
-        ````bash
         python3 Pass_Trap.py
 
 2. The Passwords manager window will open, allowing you to manage your passwords.
