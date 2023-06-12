@@ -56,12 +56,10 @@ To get started with PassTrap, follow these simple steps:
 
 2. Install Dependencies: Install the necessary dependencies by running
 
-        ````bash
         pip install -r requirements.txt
 
 3. Run PassTrap: Launch PassTrap by executing the
 
-        ````bash
         main.py file
 
 4. Store and Manage Passwords: Add your website, username, and password details to the password manager. Update or delete entries as needed.
