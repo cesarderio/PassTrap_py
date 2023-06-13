@@ -1,4 +1,4 @@
-Combine Sign-in and Password Manager: Instead of having a separate sign-in window and password manager window, you can modify your code to transform the sign-in window into the password manager window after successful authentication. This way, users don't need to switch between different windows.
+
 
 Enhance User Interface: Improve the user interface of your password manager by using icons, tooltips, and a clean layout. You can consider using a grid or table view to display password entries and provide options for sorting, filtering, and searching.
 
