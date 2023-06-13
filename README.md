@@ -54,9 +54,7 @@ To get started with PassTrap, follow these simple steps:
 
 1. Download and Install: Clone the PassTrap repository or download the source code to your local machine.
 
-2. Install Dependencies: Install the necessary dependencies by running
-
-        pip install -r requirements.txt
+2. Install Dependencies: Install the necessary dependencies (tkinter, cryptography)
 
 3. Run PassTrap: Launch PassTrap by executing the
 
@@ -155,10 +153,6 @@ PassTrap prioritizes the security and confidentiality of your passwords. It empl
 2. Install Python 3.x if it is not already installed. You can download Python from the official website: [Python](https://www.python.org/downloads/)
 
 3. Install the required dependencies:
-
-        pip install -r requirements.txt
-
-***Dependencies can be installed independently:***
 
 - ### Install Tkinter module
 
