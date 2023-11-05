@@ -1,5 +1,7 @@
 # PassTrap
 
+<img src="./assets/passtrap_py.png" alt="NVST" width="500">
+
 PassTrap is a user-friendly password manager application built using Python and Tkinter. It provides a secure solution for storing and managing passwords for various websites and services.
 
 ## Key Features
